@@ -23,7 +23,10 @@ menu:
       name: Term
       url: /term
       weight: 11
-
+    - identifier: archive
+      name: Archive
+      url: /archives
+      weight: 12
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: codefrydev
