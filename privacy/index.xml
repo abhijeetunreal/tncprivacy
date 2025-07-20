@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rich Content and Shortcodes on CFD TnC and Privacy</title>
+    <link>https://codefrydev.in/tncprivacy/privacy/</link>
+    <description>Recent content in Rich Content and Shortcodes on CFD TnC and Privacy</description>
+    <image>
+      <title>CFD TnC and Privacy</title>
+      <url>https://codefrydev.in/tncprivacy/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://codefrydev.in/tncprivacy/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://codefrydev.in/tncprivacy/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rich Content and Shortcodes</title>
+      <link>https://codefrydev.in/tncprivacy/privacy/water/</link>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://codefrydev.in/tncprivacy/privacy/water/</guid>
+      <description>This website will contail privacy and policy and terms and condition of using codefrydev website</description>
+    </item>
+  </channel>
+</rss>
