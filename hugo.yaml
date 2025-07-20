@@ -1,0 +1,50 @@
+baseURL: "https://codefrydev.in/tncprivacy/"
+title: CFD TnC and Privacy 
+theme: PaperMod
+
+enableRobotsTXT: true
+
+#googleAnalytics: UA-123-45
+minify:
+  disableXML: true
+  minifyOutput: true
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: privacy
+      name: Privacy
+      url: /privacy
+      weight: 11
+    - identifier: term
+      name: Term
+      url: /term
+      weight: 11
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: codefrydev
+  description: "codefrydev description"
+  keywords: [Privacy, Term, Conditions, CodeFryDev, CFD,Privacy, TnC]
+  mainSections: ["privacy", "term"]
+  author: Codeferydev
+  # author: ["Me", "You"] # multiple authors
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false 
+  ShowCopyright: true
+  copyright: "© 2025 CodeFryDev. All rights reserved."
