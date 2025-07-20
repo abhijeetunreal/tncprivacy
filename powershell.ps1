@@ -7,10 +7,10 @@
 .DESCRIPTION
     This script prompts the user for a website name and a GitHub username, then performs the following actions:
     1. Checks for and installs dependencies like Hugo and Git using Chocolatey.
-    2. Creates a new Hugo site.
-    3. Initializes a Git repository.
+    2. Creates a new Hugo site in a new folder.
+    3. Initializes a Git repository inside the new site folder.
     4. Adds the PaperMod theme as a submodule.
-    5. Creates and configures the 'config.yaml' file.
+    5. Creates and configures the 'hugo.yaml' file.
     6. Creates 'archive.md' and 'search.md' content files.
     7. Creates a custom footer partial.
     8. Creates a GitHub Actions workflow file for automatic deployment to GitHub Pages.
@@ -24,8 +24,6 @@
 # --- Check for Administrator privileges ---
 if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Warning "This script requires Administrator privileges to install software. Please re-run PowerShell as an Administrator."
-    # The line below would attempt to re-launch the script as admin, but it's better to instruct the user.
-    # Start-Process powershell.exe -Verb RunAs -ArgumentList ('-File "{0}"' -f $MyInvocation.MyCommand.Path)
     return
 }
 
@@ -82,9 +80,23 @@ if ([string]::IsNullOrWhiteSpace($githubUsername)) {
 }
 
 # --- Script Execution ---
+$initialDirectory = Get-Location
+
 try {
+    # Check if a directory with the same name already exists
+    if (Test-Path -Path $websiteName) {
+        Write-Host "A directory named '$websiteName' already exists here. Please choose a different name or run the script from another directory." -ForegroundColor Red
+        return
+    }
+
     Write-Host "Creating new Hugo site: $websiteName" -ForegroundColor Green
     hugo new site $websiteName --format yaml
+    
+    # Verify site creation and change directory
+    if (-not (Test-Path -Path $websiteName -PathType Container)) {
+        Write-Host "Failed to create the site directory. Aborting." -ForegroundColor Red
+        return
+    }
     Set-Location $websiteName
 
     Write-Host "Initializing Git repository..." -ForegroundColor Green
@@ -98,8 +110,8 @@ try {
     git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
     git submodule update --init --recursive
 
-    # --- Create config.yaml ---
-    Write-Host "Creating and configuring config.yaml..." -ForegroundColor Green
+    # --- Configure hugo.yaml ---
+    Write-Host "Configuring hugo.yaml..." -ForegroundColor Green
     $configContent = @"
 baseURL: "https://$($githubUsername).github.io/$($websiteName)/"
 title: $websiteName
@@ -126,7 +138,8 @@ menu:
       url: /search/
       weight: 15
 "@
-    Set-Content -Path "gugo.yaml" -Value $configContent -Force
+    # Note: This overwrites the default 'hugo.yaml' created by the 'hugo new site' command.
+    Set-Content -Path "hugo.yaml" -Value $configContent -Force
 
     # --- Create content files ---
     $contentPath = "content"
@@ -255,6 +268,7 @@ catch {
     Write-Host $_.Exception.Message -ForegroundColor Red
 }
 finally {
-    # You can navigate back to the original directory if needed
-    # Set-Location ..
+    # Return to the original directory where the script was run
+    Write-Host "Returning to original directory: $($initialDirectory.Path)" -ForegroundColor Gray
+    Set-Location $initialDirectory
 }
