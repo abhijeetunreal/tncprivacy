@@ -14,11 +14,18 @@
     <lastBuildDate>Sun, 20 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://codefrydev.in/tncprivacy/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Rich Content and Shortcodes</title>
+      <title>Water App Privacy Policy</title>
       <link>https://codefrydev.in/tncprivacy/privacy/water/</link>
       <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://codefrydev.in/tncprivacy/privacy/water/</guid>
-      <description>This website will contail privacy and policy and terms and condition of using codefrydev website</description>
+      <description>This website will contail privacy and policy and terms and condition of using water reminder app</description>
+    </item>
+    <item>
+      <title>Water App Terms &amp; Conditions</title>
+      <link>https://codefrydev.in/tncprivacy/term/water/</link>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://codefrydev.in/tncprivacy/term/water/</guid>
+      <description>This website will contain Terms &amp;amp; Conditions of using water reminder app</description>
     </item>
   </channel>
 </rss>
